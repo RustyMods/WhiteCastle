@@ -13,7 +13,7 @@
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>preview</LangVersion>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -94,6 +94,9 @@
         <Reference Include="UnityEngine.AssetBundleModule">
             <HintPath>$(CorlibPath)\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine.CoreModule">
             <HintPath>$(CorlibPath)\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
@@ -124,17 +127,18 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Managers\ConfigManager.cs"/>
-        <Compile Include="Managers\CreatureManager.cs"/>
-        <Compile Include="Managers\ItemDataManager.cs"/>
-        <Compile Include="Managers\ItemManager.cs"/>
-        <Compile Include="Managers\LocalizationManager.cs"/>
-        <Compile Include="Managers\LocationManager.cs"/>
-        <Compile Include="Managers\PieceManager\MaterialReplacer.cs"/>
-        <Compile Include="Managers\PieceManager\PieceManager.cs"/>
-        <Compile Include="Managers\PieceManager\SnapPointMaker.cs"/>
+        <Compile Include="Managers\EffectListManager.cs" />
+        <Compile Include="Managers\EffectRef.cs" />
+        <Compile Include="Managers\IconExport.cs" />
+        <Compile Include="Managers\PieceManager\MaterialData.cs" />
+        <Compile Include="Managers\PieceManager\MaterialReplacer.cs" />
+        <Compile Include="Managers\PieceManager\PieceManager.cs" />
         <Compile Include="Managers\PrefabManager.cs"/>
-        <Compile Include="Managers\SkillManager.cs"/>
-        <Compile Include="Managers\StatusEffectManager.cs"/>
+        <Compile Include="Managers\ReadMeBuilder.cs" />
+        <Compile Include="Pieces\Assets.cs" />
+        <Compile Include="Pieces\Brazier.cs" />
+        <Compile Include="Pieces\VFX.cs" />
+        <Compile Include="Pieces\WhiteMarble.cs" />
         <Compile Include="Plugin.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="VersionHandshake.cs"/>
@@ -143,8 +147,124 @@
         <None Include="App.config"/>
     </ItemGroup>
     <ItemGroup>
+        <EmbeddedResource Include="..\..\..\Desktop\Valheim\V1\AssetBundles\StandaloneWindows\white_castle_bundle">
+          <Link>assets\white_castle_bundle</Link>
+        </EmbeddedResource>
+        <Content Include="..\..\..\Desktop\Valheim\V1\AssetBundles\StandaloneWindows\white_castle_bundle.manifest">
+          <Link>assets\white_castle_bundle.manifest</Link>
+        </Content>
         <Content Include=".gitignore"/>
         <Content Include="environment.props"/>
+        <Content Include="icons\piece_white_marble_1x1.png" />
+        <Content Include="icons\piece_white_marble_2x1x1.png" />
+        <Content Include="icons\piece_white_marble_2x2x1.png" />
+        <Content Include="icons\piece_white_marble_2x2x2.png" />
+        <Content Include="icons\piece_white_marble_2x2_enforced.png" />
+        <Content Include="icons\piece_white_marble_arch.png" />
+        <Content Include="icons\piece_white_marble_arch_1.png" />
+        <Content Include="icons\piece_white_marble_arch_2.png" />
+        <Content Include="icons\piece_white_marble_arch_3.png" />
+        <Content Include="icons\piece_white_marble_base.png" />
+        <Content Include="icons\piece_white_marble_base_1.png" />
+        <Content Include="icons\piece_white_marble_base_2.png" />
+        <Content Include="icons\piece_white_marble_base_corner.png" />
+        <Content Include="icons\piece_white_marble_beam_1.png" />
+        <Content Include="icons\piece_white_marble_beam_2.png" />
+        <Content Include="icons\piece_white_marble_beam_3.png" />
+        <Content Include="icons\piece_white_marble_beam_4.png" />
+        <Content Include="icons\piece_white_marble_bell.png" />
+        <Content Include="icons\piece_white_marble_brazier.png" />
+        <Content Include="icons\piece_white_marble_column_1.png" />
+        <Content Include="icons\piece_white_marble_column_1_1.png" />
+        <Content Include="icons\piece_white_marble_column_1_2.png" />
+        <Content Include="icons\piece_white_marble_column_1_3.png" />
+        <Content Include="icons\piece_white_marble_column_1_4.png" />
+        <Content Include="icons\piece_white_marble_column_2.png" />
+        <Content Include="icons\piece_white_marble_column_2_1.png" />
+        <Content Include="icons\piece_white_marble_column_2_2.png" />
+        <Content Include="icons\piece_white_marble_column_2_3.png" />
+        <Content Include="icons\piece_white_marble_column_3.png" />
+        <Content Include="icons\piece_white_marble_column_3_1.png" />
+        <Content Include="icons\piece_white_marble_column_3_2.png" />
+        <Content Include="icons\piece_white_marble_column_4_1.png" />
+        <Content Include="icons\piece_white_marble_column_4_2.png" />
+        <Content Include="icons\piece_white_marble_column_4_3.png" />
+        <Content Include="icons\piece_white_marble_column_4_4.png" />
+        <Content Include="icons\piece_white_marble_column_4_5.png" />
+        <Content Include="icons\piece_white_marble_column_5_1.png" />
+        <Content Include="icons\piece_white_marble_column_5_2.png" />
+        <Content Include="icons\piece_white_marble_column_6_1.png" />
+        <Content Include="icons\piece_white_marble_column_6_2.png" />
+        <Content Include="icons\piece_white_marble_column_6_3.png" />
+        <Content Include="icons\piece_white_marble_column_7_1.png" />
+        <Content Include="icons\piece_white_marble_column_7_2.png" />
+        <Content Include="icons\piece_white_marble_column_7_3.png" />
+        <Content Include="icons\piece_white_marble_column_7_4.png" />
+        <Content Include="icons\piece_white_marble_column_8_1.png" />
+        <Content Include="icons\piece_white_marble_column_8_2.png" />
+        <Content Include="icons\piece_white_marble_column_8_3.png" />
+        <Content Include="icons\piece_white_marble_column_8_4.png" />
+        <Content Include="icons\piece_white_marble_contreforce_1.png" />
+        <Content Include="icons\piece_white_marble_contreforce_2.png" />
+        <Content Include="icons\piece_white_marble_contreforce_2_1.png" />
+        <Content Include="icons\piece_white_marble_contreforce_2_2.png" />
+        <Content Include="icons\piece_white_marble_contreforce_3.png" />
+        <Content Include="icons\piece_white_marble_contreforce_3_1.png" />
+        <Content Include="icons\piece_white_marble_contreforce_3_2.png" />
+        <Content Include="icons\piece_white_marble_contreforce_3_3.png" />
+        <Content Include="icons\piece_white_marble_contreforce_4.png" />
+        <Content Include="icons\piece_white_marble_contreforce_5.png" />
+        <Content Include="icons\piece_white_marble_cornice_1.png" />
+        <Content Include="icons\piece_white_marble_cornice_2.png" />
+        <Content Include="icons\piece_white_marble_cornice_3.png" />
+        <Content Include="icons\piece_white_marble_deco_1.png" />
+        <Content Include="icons\piece_white_marble_deco_10.png" />
+        <Content Include="icons\piece_white_marble_deco_2.png" />
+        <Content Include="icons\piece_white_marble_deco_3.png" />
+        <Content Include="icons\piece_white_marble_deco_4.png" />
+        <Content Include="icons\piece_white_marble_deco_5.png" />
+        <Content Include="icons\piece_white_marble_deco_6.png" />
+        <Content Include="icons\piece_white_marble_deco_7.png" />
+        <Content Include="icons\piece_white_marble_deco_8.png" />
+        <Content Include="icons\piece_white_marble_deco_9.png" />
+        <Content Include="icons\piece_white_marble_detail_1.png" />
+        <Content Include="icons\piece_white_marble_flat_1.png" />
+        <Content Include="icons\piece_white_marble_flat_2.png" />
+        <Content Include="icons\piece_white_marble_flat_3.png" />
+        <Content Include="icons\piece_white_marble_flat_4.png" />
+        <Content Include="icons\piece_white_marble_flat_5.png" />
+        <Content Include="icons\piece_white_marble_floor.png" />
+        <Content Include="icons\piece_white_marble_floor_triangle.png" />
+        <Content Include="icons\piece_white_marble_outcorner.png" />
+        <Content Include="icons\piece_white_marble_out_1.png" />
+        <Content Include="icons\piece_white_marble_out_2.png" />
+        <Content Include="icons\piece_white_marble_pillar_1.png" />
+        <Content Include="icons\piece_white_marble_pillar_2.png" />
+        <Content Include="icons\piece_white_marble_pillar_3.png" />
+        <Content Include="icons\piece_white_marble_slope_1x2.png" />
+        <Content Include="icons\piece_white_marble_slope_inverted_1x2.png" />
+        <Content Include="icons\piece_white_marble_stair.png" />
+        <Content Include="icons\piece_white_marble_tile_floor_1x1.png" />
+        <Content Include="icons\piece_white_marble_tile_floor_2x2.png" />
+        <Content Include="icons\piece_white_marble_tile_wall_1x1.png" />
+        <Content Include="icons\piece_white_marble_tile_wall_2x2.png" />
+        <Content Include="icons\piece_white_marble_tile_wall_2x4.png" />
+        <Content Include="icons\piece_white_marble_tip.png" />
+        <Content Include="icons\piece_white_marble_wall_1.png" />
+        <Content Include="icons\piece_white_marble_wall_2.png" />
+        <Content Include="icons\piece_white_marble_window_1_1.png" />
+        <Content Include="icons\piece_white_marble_window_1_2.png" />
+        <Content Include="icons\piece_white_marble_window_1_3.png" />
+        <Content Include="icons\piece_white_marble_window_1_4.png" />
+        <Content Include="icons\piece_white_marble_window_1_5.png" />
+        <Content Include="icons\piece_white_marble_window_2_1.png" />
+        <Content Include="icons\piece_white_marble_window_2_2.png" />
+        <Content Include="icons\piece_white_marble_window_2_3.png" />
+        <Content Include="icons\piece_white_marble_window_2_4.png" />
+        <Content Include="icons\piece_white_marble_window_2_5.png" />
+        <Content Include="icons\piece_white_marble_window_3_1.png" />
+        <Content Include="icons\piece_white_marble_window_3_2.png" />
+        <Content Include="icons\piece_white_marble_window_3_3.png" />
         <Content Include="ILRepack.targets"/>
         <Content Include="Libs\ServerSync.dll">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -154,6 +274,7 @@
         <Content Include="Thunderstore\icon.png"/>
         <Content Include="Thunderstore\manifest.json"/>
         <EmbeddedResource Include="translations\English.yml"/>
+        <Content Include="Thunderstore\README.md" />
         <Content Include="UpdateManifest.ps1"/>
     </ItemGroup>
     <ItemGroup>
@@ -162,10 +283,6 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="YamlDotNet" Version="16.3.0"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="assets\"/>
-        <Folder Include="icons\"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

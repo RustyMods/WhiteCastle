@@ -1,2 +1,110 @@
-# Ready to use english translation file for the plugin
-# (for more information on LocalizationManager, see the LocalizationManager documentation https://github.com/blaxxun-boop/LocalizationManager#example-project).
+piece_white_marble_arch: White Marble Arch
+piece_white_marble_arch_2: White Marble Arch
+piece_white_marble_arch_3: White Marble Arch
+piece_white_marble_base: White Marble Arch Base
+piece_white_marble_beam_1: White Marble Beam 1
+piece_white_marble_beam_2: White Marble Beam 2
+piece_white_marble_beam_3: White Marble Beam 3
+piece_white_marble_beam_4: White Marble Beam 4
+piece_white_marble_bell: Bell
+piece_white_marble_detail_1: Gold Pole
+piece_white_marble_brazier: Brazier
+piece_white_marble_column_1_1: Column Base
+piece_white_marble_column_1_2: Column Section
+piece_white_marble_column_1_3: Column Section
+piece_white_marble_column_1_4: Column Top
+piece_white_marble_column_2_1: Column Base
+piece_white_marble_column_2_2: Column Section
+piece_white_marble_column_2_3: Column 2
+piece_white_marble_column_3_1: Column 2
+piece_white_marble_column_3_2: Column 2
+piece_white_marble_column_4_1: Column Base
+piece_white_marble_column_4_2: Column Step
+piece_white_marble_column_4_3: Column Section
+piece_white_marble_column_4_4: Column Top
+piece_white_marble_column_4_5: Column Base
+piece_white_marble_column_5_1: Column Section
+piece_white_marble_column_5_2: Column Base
+piece_white_marble_column_6_1: Column Section
+piece_white_marble_column_6_2: Column Top
+piece_white_marble_column_6_3: Column Base
+piece_white_marble_column_7_1: Column Section
+piece_white_marble_column_7_2: Column Top
+piece_white_marble_column_7_3: Column Top
+piece_white_marble_column_7_4: Column Base
+piece_white_marble_column_8_1: Column Section
+piece_white_marble_column_8_2: Column Section
+piece_white_marble_column_8_3: Column Top
+piece_white_marble_column_8_4: Column Base
+piece_white_marble_contreforce_1: Counterfort
+piece_white_marble_contreforce_2: Counterfort
+piece_white_marble_contreforce_2_1: Counterfort
+piece_white_marble_contreforce_2_2: Counterfort
+piece_white_marble_contreforce_3: Counterfort
+piece_white_marble_contreforce_3_1: Counterfort Base
+piece_white_marble_contreforce_3_2: Counterfort Section
+piece_white_marble_contreforce_3_3: Counterfort Top
+piece_white_marble_contreforce_4: Counterfort
+piece_white_marble_contreforce_5: Counterfort
+piece_white_marble_cornice_1: Cornice
+piece_white_marble_cornice_2: Cornice
+piece_white_marble_cornice_3: Cornice
+piece_white_marble_deco_1: Deco
+piece_white_marble_deco_2: Deco
+piece_white_marble_deco_3: Deco
+piece_white_marble_deco_4: Deco
+piece_white_marble_deco_5: Deco
+piece_white_marble_deco_6: Deco
+piece_white_marble_deco_7: Deco
+piece_white_marble_deco_8: Deco
+piece_white_marble_deco_9: Deco
+piece_white_marble_deco_10: Deco
+piece_white_marble_flat_1: Ornament
+piece_white_marble_flat_2: Ornament
+piece_white_marble_flat_3: Ornament
+piece_white_marble_flat_4: Ornament
+piece_white_marble_flat_5: Ornament
+piece_white_marble_pillar_1: Pillar
+piece_white_marble_pillar_2: Pillar
+piece_white_marble_pillar_3: Pillar
+piece_white_marble_wall_1: Wall Detail
+piece_white_marble_wall_2: Wall Detail
+piece_white_marble_window_1_1: Window Base
+piece_white_marble_window_1_2: Window Section
+piece_white_marble_window_1_3: Window Section
+piece_white_marble_window_1_4: Window Top
+piece_white_marble_window_1_5: Window Top
+piece_white_marble_window_2_1: Window Base
+piece_white_marble_window_2_2: Window Section
+piece_white_marble_window_2_3: Window Section
+piece_white_marble_window_2_4: Window Top
+piece_white_marble_window_2_5: Window Top
+piece_white_marble_window_3_1: Window Section
+piece_white_marble_window_3_2: Window Top
+piece_white_marble_window_3_3: Window Base
+piece_white_marble_1x1: White Marble 1x1x1
+piece_white_marble_2x1x1: White Marble 2x1x1
+piece_white_marble_2x2_enforced: White Marble 2x2x2 Enforced
+piece_white_marble_2x2x1: White Marble 2x2x1
+piece_white_marble_2x2x2: White Marble 2x2x2
+piece_white_marble_arch_1: White Marble Arch
+piece_white_marble_base_1: White Marble Plinth
+piece_white_marble_base_2: White Marble Plinth Wide
+piece_white_marble_base_corner: White Marble Plinth Corner
+piece_white_marble_column_1: White Marble Column Small
+piece_white_marble_column_2: White Marble Column Wide
+piece_white_marble_column_3: White Marble Column Tall
+piece_white_marble_floor: White Marble Floor
+piece_white_marble_floor_triangle: White Marble Floor Triangle
+piece_white_marble_out_1: White Marble Cornice
+piece_white_marble_out_2: White Marble Cornice Wide
+piece_white_marble_outcorner: White Marble Cornice Corner
+piece_white_marble_slope_1x2: White Marble Slope 1x2
+piece_white_marble_slope_inverted_1x2: White Marble Slope Inverted 1x2
+piece_white_marble_stair: White Marble Stair
+piece_white_marble_tile_floor_1x1: White Marble Tile Floor 1x1
+piece_white_marble_tile_floor_2x2: White Marble Tile Floor 2x2
+piece_white_marble_tile_wall_1x1: White Marble Tile Wall 1x1
+piece_white_marble_tile_wall_2x2: White Marble Tile Wall 2x2
+piece_white_marble_tile_wall_2x4: White Marble Tile Wall 2x4
+piece_white_marble_tip: White Marble Quarter Spire

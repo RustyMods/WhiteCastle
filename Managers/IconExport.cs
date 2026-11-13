@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace AlchemyProps;
+namespace WhiteCastle;
 
 public static class IconExport
 {

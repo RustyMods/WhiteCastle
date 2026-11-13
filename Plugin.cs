@@ -10,9 +10,9 @@ public class WhiteCastlePlugin : BaseUnityPlugin
 {
     internal const string ModName = "WhiteCastle";
     internal const string ModVersion = "1.0.0";
-    internal const string Author = "{RustyMods}";
+    internal const string Author = "RustyMods";
     public const string ModGUID = Author + "." + ModName;
-    private readonly Harmony _harmony = new(ModGUID);
+    public readonly Harmony _harmony = new(ModGUID);
     public static Harmony harmony => instance._harmony;
 
     public static WhiteCastlePlugin instance;
@@ -20,8 +20,12 @@ public class WhiteCastlePlugin : BaseUnityPlugin
     public void Awake()
     {
         instance = this;
-        
+        ReadMeBuilder.Init(true);
+
+        var root = PrefabManager.root;
+
         VersionHandshake.Init();
+        Assets.Setup();
 
         var assembly = Assembly.GetExecutingAssembly();
         _harmony.PatchAll(assembly);

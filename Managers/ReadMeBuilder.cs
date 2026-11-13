@@ -1,22 +1,22 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using AlchemyProps;
 using BepInEx;
 using HarmonyLib;
 using PieceManager;
+using WhiteCastle;
 
-namespace AlchemyProps;
+namespace WhiteCastle;
 
 public static class ReadMeBuilder
 {
-    private static bool buildReadme = false;
+    public static bool buildReadme = false;
     private static bool exportSprites = false;
 
     static ReadMeBuilder()
     {
-        AlchemyPropsPlugin.instance._harmony.Patch(
-            AccessTools.DeclaredMethod(typeof(ZNetScene), nameof(ZNetScene.Awake)),
+        WhiteCastlePlugin.instance._harmony.Patch(
+            AccessTools.DeclaredMethod(typeof(Player), nameof(Player.OnSpawned)),
             postfix: new HarmonyMethod(AccessTools.DeclaredMethod(typeof(ReadMeBuilder), nameof(Build))));
     }
 
@@ -28,7 +28,7 @@ public static class ReadMeBuilder
 
     public static void ExportLocalization()
     {
-        var path = Path.Combine(Paths.ConfigPath, AlchemyPropsPlugin.ModName);
+        var path = Path.Combine(Paths.ConfigPath, WhiteCastlePlugin.ModName);
         Directory.CreateDirectory(path);
         StringBuilder sb = new StringBuilder();
         
@@ -51,11 +51,11 @@ public static class ReadMeBuilder
     {
         if (!buildReadme) return;
 
-        var path = Path.Combine(Paths.ConfigPath, AlchemyPropsPlugin.ModName);
+        var path = Path.Combine(Paths.ConfigPath, WhiteCastlePlugin.ModName);
         Directory.CreateDirectory(path);
 
         var sb = new StringBuilder();
-        sb.AppendLine($"# {AlchemyPropsPlugin.ModName}");
+        sb.AppendLine($"# {WhiteCastlePlugin.ModName}");
         sb.AppendLine();
         sb.AppendLine("| Icon | Internal ID | Name | Description | Resources |");
         sb.AppendLine("|:---:|:---|:---|:---|:---|");
@@ -66,7 +66,7 @@ public static class ReadMeBuilder
             var internalId = component.name;
             var unLocalizedName = component.m_name;
             var unLocalizedDescription = component.m_description;
-            var iconUrl = $"https://raw.githubusercontent.com/RustyMods/{AlchemyPropsPlugin.ModName}/refs/heads/master/icons/" + component.name + ".png";
+            var iconUrl = $"https://raw.githubusercontent.com/RustyMods/{WhiteCastlePlugin.ModName}/refs/heads/master/icons/" + component.name + ".png";
             var resources = string.Join(", ", build.RequiredItems.Requirements.Select(r => $"{r.itemName} x {r.amount}"));
 
             if (exportSprites)

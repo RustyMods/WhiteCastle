@@ -289,6 +289,12 @@ public class BuildPiece
         registeredPieces.Add(this);
     }
 
+    public BuildPiece(GameObject prefab)
+    {
+        Prefab = prefab;
+        registeredPieces.Add(this);
+    }
+
     private class ConfigurationManagerAttributes
     {
         [UsedImplicitly] public int? Order;
@@ -331,7 +337,7 @@ public class BuildPiece
             {
                 prefab.m_category = PiecePrefabManager.GetCategory(piece.Category.custom);
             }
-
+        
             if (piece.Usage.Tags != 0)
             {
                 prefab.m_usage = piece.Usage.Tags;
@@ -341,7 +347,7 @@ public class BuildPiece
                 prefab.m_usage = DefaultUsageFor(prefab.m_category);
             }
         }
-
+        
         if (ConfigurationEnabled)
         {
             bool SaveOnConfigSet = plugin.Config.SaveOnConfigSet;
@@ -354,9 +360,9 @@ public class BuildPiece
                 string pieceName = piecePrefab.m_name;
                 string englishName = new Regex(@"[=\n\t\\""\'\[\]]*").Replace(english.Localize(pieceName), "").Trim();
                 string localizedName = Localization.instance.Localize(pieceName).Trim();
-
+        
                 int order = 0;
-
+        
                 cfg.category = config(englishName, "Build Table Category", piece.Category.Category,
                     new ConfigDescription($"Build Category where {localizedName} is available.", null,
                         new ConfigurationManagerAttributes { Order = --order, Category = localizedName }));
@@ -367,7 +373,7 @@ public class BuildPiece
                 };
                 cfg.customCategory = config(englishName, "Custom Build Category", piece.Category.custom,
                     new ConfigDescription("", null, customTableAttributes));
-
+        
                 void BuildTableConfigChanged(object o, EventArgs e)
                 {
                     if (registeredPieces.Count > 0)
@@ -380,7 +386,7 @@ public class BuildPiece
                         {
                             piecePrefab.m_category = (Piece.PieceCategory)cfg.category.Value;
                         }
-
+        
                         if (Hud.instance)
                         {
                             PiecePrefabManager.CategoryRefreshNeeded = true;
@@ -388,14 +394,14 @@ public class BuildPiece
                             PiecePrefabManager.RefreshBuildMenu();
                         }
                     }
-
+        
                     customTableAttributes.Browsable = cfg.category.Value == BuildPieceCategory.Custom;
                     ReloadConfigDisplay();
                 }
-
+        
                 cfg.category.SettingChanged += BuildTableConfigChanged;
                 cfg.customCategory.SettingChanged += BuildTableConfigChanged;
-
+        
                 if (cfg.category.Value is BuildPieceCategory.Custom)
                 {
                     piecePrefab.m_category = PiecePrefabManager.GetCategory(cfg.customCategory.Value);
@@ -404,7 +410,7 @@ public class BuildPiece
                 {
                     piecePrefab.m_category = (Piece.PieceCategory)cfg.category.Value;
                 }
-
+        
                 cfg.usage = config(englishName, "Build Menu Tags", piecePrefab.m_usage,
                     new ConfigDescription($"Tags {localizedName} is listed under in the build menu.", null,
                         new ConfigurationManagerAttributes { Order = --order, Category = localizedName }));
@@ -414,7 +420,7 @@ public class BuildPiece
                     piecePrefab.m_usage = cfg.usage.Value;
                     PiecePrefabManager.RefreshBuildMenu();
                 };
-
+        
                 cfg.tools = config(englishName, "Tools", string.Join(", ", piece.activeTools),
                     new ConfigDescription($"Comma separated list of tools where {localizedName} is available.", null,
                         customTableAttributes));
@@ -434,7 +440,7 @@ public class BuildPiece
                             new KeyValuePair<string, ItemDrop.ItemData>(i.m_dropPrefab.name, i)))
                         .Where(kv => kv.Value.m_shared.m_buildPieces).GroupBy(kv => kv.Key).ToDictionary(g => g.Key,
                             g => g.Select(kv => kv.Value.m_shared.m_buildPieces).Distinct().ToList());
-
+        
                     foreach (string tool in piece.activeTools)
                     {
                         if (tools.TryGetValue(tool, out List<PieceTable> existingTools))
@@ -445,7 +451,7 @@ public class BuildPiece
                             }
                         }
                     }
-
+        
                     piece.activeTools = cfg.tools.Value.Split(',').Select(s => s.Trim()).ToArray();
                     if (ObjectDB.instance)
                     {
@@ -462,7 +468,7 @@ public class BuildPiece
                                 }
                             }
                         }
-
+        
                         if (Player.m_localPlayer && Player.m_localPlayer.m_buildPieces)
                         {
                             PiecePrefabManager.CategoryRefreshNeeded = true;
@@ -471,7 +477,7 @@ public class BuildPiece
                         }
                     }
                 };
-
+        
                 if (piece.Extension.ExtensionStations.Count > 0)
                 {
                     StationExtension pieceExtensionComp = piece.Prefab.GetOrAddComponent<StationExtension>();
@@ -487,7 +493,7 @@ public class BuildPiece
                         new ConfigDescription($"Distance from the station that {localizedName} can be placed.", null,
                             new ConfigurationManagerAttributes { Order = --order }));
                     List<ConfigurationManagerAttributes> hideWhenNoneAttributes = [];
-
+        
                     void ExtensionTableConfigChanged(object o, EventArgs e)
                     {
                         if (piece.RequiredItems.Requirements.Count > 0)
@@ -506,40 +512,40 @@ public class BuildPiece
                                             .internalName).GetComponent<CraftingStation>();
                                     break;
                             }
-
+        
                             pieceExtensionComp.m_maxStationDistance = cfg.maxStationDistance.Value;
                         }
-
+        
                         customTableAttributes.Browsable = cfg.extensionTable.Value == CraftingTable.Custom;
                         foreach (ConfigurationManagerAttributes attributes in hideWhenNoneAttributes)
                         {
                             attributes.Browsable = cfg.extensionTable.Value != CraftingTable.None;
                         }
-
+        
                         ReloadConfigDisplay();
                         plugin.Config.Save();
                     }
-
+        
                     cfg.extensionTable.SettingChanged += ExtensionTableConfigChanged;
                     cfg.customExtentionTable.SettingChanged += ExtensionTableConfigChanged;
                     cfg.maxStationDistance.SettingChanged += ExtensionTableConfigChanged;
-
+        
                     ConfigurationManagerAttributes tableLevelAttributes = new()
                         { Order = --order, Browsable = cfg.extensionTable.Value != CraftingTable.None };
                     hideWhenNoneAttributes.Add(tableLevelAttributes);
                 }
-
+        
                 if (piece.Crafting.Stations.Count > 0)
                 {
                     List<ConfigurationManagerAttributes> hideWhenNoneAttributes = [];
-
+        
                     cfg.table = config(englishName, "Crafting Station", piece.Crafting.Stations.First().Table,
                         new ConfigDescription($"Crafting station where {localizedName} is available.", null,
                             new ConfigurationManagerAttributes { Order = --order }));
                     cfg.customTable = config(englishName, "Custom Crafting Station",
                         piece.Crafting.Stations.First().custom ?? "",
                         new ConfigDescription("", null, customTableAttributes));
-
+        
                     void TableConfigChanged(object o, EventArgs e)
                     {
                         if (piece.RequiredItems.Requirements.Count > 0)
@@ -562,32 +568,32 @@ public class BuildPiece
                                     break;
                             }
                         }
-
+        
                         customTableAttributes.Browsable = cfg.table.Value == CraftingTable.Custom;
                         foreach (ConfigurationManagerAttributes attributes in hideWhenNoneAttributes)
                         {
                             attributes.Browsable = cfg.table.Value != CraftingTable.None;
                         }
-
+        
                         ReloadConfigDisplay();
                         plugin.Config.Save();
                     }
-
+        
                     cfg.table.SettingChanged += TableConfigChanged;
                     cfg.customTable.SettingChanged += TableConfigChanged;
-
+        
                     ConfigurationManagerAttributes tableLevelAttributes = new()
                         { Order = --order, Browsable = cfg.table.Value != CraftingTable.None };
                     hideWhenNoneAttributes.Add(tableLevelAttributes);
                 }
-
+        
                 ConfigEntry<string> itemConfig(string name, string value, string desc)
                 {
                     ConfigurationManagerAttributes attributes = new()
                         { CustomDrawer = DrawConfigTable, Order = --order, Category = localizedName };
                     return config(englishName, name, value, new ConfigDescription(desc, null, attributes));
                 }
-
+        
                 cfg.craft = itemConfig("Crafting Costs",
                     new SerializedRequirements(piece.RequiredItems.Requirements).ToString(),
                     $"Item costs to craft {localizedName}");
@@ -607,14 +613,14 @@ public class BuildPiece
                         }
                     }
                 };
-
+        
                 for (int i = 0; i < piece.Conversions.Count; ++i)
                 {
                     string prefix = piece.Conversions.Count > 1 ? $"{i + 1}. " : "";
                     Conversion conversion = piece.Conversions[i];
                     conversion.config = new Conversion.ConversionConfig();
                     int index = i;
-
+        
                     conversion.config.input = config(englishName, $"{prefix}Conversion Input Item", conversion.Input,
                         new ConfigDescription($"Conversion input item within {englishName}", null,
                             new ConfigurationManagerAttributes { Category = localizedName }));
@@ -641,24 +647,24 @@ public class BuildPiece
                     };
                 }
             }
-
+        
             foreach (BuildPiece piece in registeredPieces)
             {
                 if (piece.RecipeIsActive is { } enabledCfg)
                 {
                     Piece piecePrefab = piece.Prefab.GetComponent<Piece>();
-
+        
                     void ConfigChanged(object? o, EventArgs? e) =>
                         piecePrefab.m_enabled = (int)enabledCfg.BoxedValue != 0;
-
+        
                     ConfigChanged(null, null);
                     enabledCfg.GetType().GetEvent(nameof(ConfigEntry<int>.SettingChanged))
                         .AddEventHandler(enabledCfg, new EventHandler(ConfigChanged));
                 }
-
+        
                 piece.InitializeNewRegisteredPiece(piece);
             }
-
+        
             if (SaveOnConfigSet)
             {
                 plugin.Config.SaveOnConfigSet = true;
@@ -666,6 +672,7 @@ public class BuildPiece
             }
         }
     }
+    
 
     private static Piece.UsageTagFlags DefaultUsageFor(Piece.PieceCategory category) => category switch
     {
@@ -1486,11 +1493,13 @@ public static class PiecePrefabManager
     static PiecePrefabManager()
     {
         Harmony harmony = new("org.bepinex.helpers.PieceManager");
-        harmony.Patch(AccessTools.DeclaredMethod(typeof(FejdStartup), nameof(FejdStartup.Awake)),
-            new HarmonyMethod(AccessTools.DeclaredMethod(typeof(BuildPiece), nameof(BuildPiece.Patch_FejdStartup))));
-        harmony.Patch(AccessTools.DeclaredMethod(typeof(FejdStartup), nameof(FejdStartup.Awake)),
-            new HarmonyMethod(AccessTools.DeclaredMethod(typeof(BuildPiece),
-                nameof(BuildPiece.KickoffQueuedSnapshots))));
+        // harmony.Patch(AccessTools.DeclaredMethod(typeof(FejdStartup), nameof(FejdStartup.Awake)),
+        //     new HarmonyMethod(AccessTools.DeclaredMethod(typeof(BuildPiece), nameof(BuildPiece.Patch_FejdStartup))));
+        
+        // harmony.Patch(AccessTools.DeclaredMethod(typeof(FejdStartup), nameof(FejdStartup.Awake)),
+        //     new HarmonyMethod(AccessTools.DeclaredMethod(typeof(BuildPiece),
+        //         nameof(BuildPiece.KickoffQueuedSnapshots))));
+        
         harmony.Patch(AccessTools.DeclaredMethod(typeof(Localization), nameof(Localization.LoadCSV)),
             postfix: new HarmonyMethod(AccessTools.DeclaredMethod(typeof(LocalizeKey),
                 nameof(LocalizeKey.AddLocalizedKeys))));

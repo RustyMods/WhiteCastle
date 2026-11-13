@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace PieceManager;
 
+
 public class MaterialData
 {
     private static readonly List<Material> processedMaterials = [];
     private static readonly int MetallicGlossMap = Shader.PropertyToID("_MetallicGlossMap");
     private static readonly int MetallicTex = Shader.PropertyToID("_MetallicTex");
+    private static readonly int NoiseTex = Shader.PropertyToID("_NoiseTex");
 
     public static Texture _noiseTex
     {
@@ -24,13 +27,16 @@ public class MaterialData
     public Material material;
     public MaterialReplacer.ShaderType shaderType;
     public Dictionary<string, float> floatProps = new();
+    public Dictionary<string, Vector4> vectorProps = new();
     public Texture metallicGlossMap;
+    public Action<Material> onProcessed;
     
-    public MaterialData(Material material, MaterialReplacer.ShaderType shaderType)
+    public MaterialData(Material material, MaterialReplacer.ShaderType shaderType, Action<Material> onProcessed = null)
     {
         this.material = material;
         this.shaderType = shaderType;
         metallicGlossMap = material.HasProperty(MetallicGlossMap) ? material.GetTexture(MetallicGlossMap) : null;
+        this.onProcessed = onProcessed;
         MaterialReplacer.materialsToSet.Add(this);
     }
 
@@ -40,9 +46,9 @@ public class MaterialData
         
         material.shader = MaterialReplacer.GetShaderForType(material.shader,  shaderType, material.shader.name);
 
-        if (material.HasProperty("_NoiseTex"))
+        if (material.HasProperty(NoiseTex))
         {
-            material.SetTexture("_NoiseTex", _noiseTex);
+            material.SetTexture(NoiseTex, _noiseTex);
         }
         
         if (material.HasProperty(MetallicTex))
@@ -57,6 +63,19 @@ public class MaterialData
             {
                 material.SetFloat(kvp.Key, kvp.Value);
             }
+        }
+
+        foreach (var kvp in vectorProps)
+        {
+            if (material.HasProperty(kvp.Key))
+            {
+                material.SetVector(kvp.Key, kvp.Value);
+            }
+        }
+
+        if (onProcessed != null)
+        {
+            onProcessed(material);
         }
         
         processedMaterials.Add(material);

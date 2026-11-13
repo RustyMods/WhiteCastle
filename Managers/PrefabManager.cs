@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using PieceManager;
 using UnityEngine;
 
 namespace WhiteCastle;
@@ -33,12 +34,21 @@ public class PrefabManager
         WhiteCastlePlugin.harmony.Patch(
             AccessTools.DeclaredMethod(typeof(FejdStartup), nameof(FejdStartup.Awake)),
             new HarmonyMethod(AccessTools.DeclaredMethod(typeof(PrefabManager), nameof(FejdStartup_Awake_Prefix))));
+        WhiteCastlePlugin.harmony.Patch(AccessTools.DeclaredMethod(typeof(ZNetScene), nameof(ZNetScene.Awake)),
+            prefix: new HarmonyMethod(AccessTools.DeclaredMethod(typeof(PrefabManager),
+                nameof(ZNetScene_Awake_Prefix))));
     }
 
     public static void FejdStartup_Awake_Prefix(FejdStartup __instance)
     {
         _scene = __instance.m_objectDBPrefab.GetComponent<ZNetScene>();
         _db = __instance.m_objectDBPrefab.GetComponent<ObjectDB>();
+        
+        Assets.SetupWhiteMarblePieces();
+        Assets.SetupVfx();
+        Assets.LoadBrazierAssets();
+
+        BuildPiece.Patch_FejdStartup(__instance);
     }
 
     public static bool TryGetPrefab(string id, out GameObject prefab)
@@ -52,5 +62,17 @@ public class PrefabManager
     public static void Register(GameObject prefab)
     {
         if (!prefabsToRegister.Contains(prefab)) prefabsToRegister.Add(prefab);
+        if (!_scene.m_prefabs.Contains(prefab)) _scene.m_prefabs.Add(prefab);
+    }
+
+    public static void ZNetScene_Awake_Prefix(ZNetScene __instance)
+    {
+        foreach (var prefab in prefabsToRegister)
+        {
+            if (!__instance.m_prefabs.Contains(prefab))
+            {
+                __instance.m_prefabs.Add(prefab);
+            }
+        }
     }
 }

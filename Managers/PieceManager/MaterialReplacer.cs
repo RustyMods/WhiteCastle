@@ -4,6 +4,8 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
+using WhiteCastle;
+
 #nullable  enable
 namespace PieceManager
 {
@@ -118,6 +120,8 @@ namespace PieceManager
             }
 
             hasRun = true;
+            
+            BuildPiece.KickoffQueuedSnapshots();
         }
 
         private static void ProcessGameObjectMaterials(GameObject go, bool isJotunnMock)

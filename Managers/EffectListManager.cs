@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using HarmonyLib;
+using WhiteCastle;
 
-namespace AlchemyProps;
+namespace WhiteCastle;
 
 public static class EffectListManager
 {
@@ -10,7 +11,7 @@ public static class EffectListManager
     static EffectListManager()
     {
         m_effectListRefs = [];
-        var harmony = AlchemyPropsPlugin.instance._harmony;
+        var harmony = WhiteCastlePlugin.instance._harmony;
         harmony.Patch(AccessTools.DeclaredMethod(typeof(ZNetScene), nameof(ZNetScene.Awake)),
             postfix: new HarmonyMethod(AccessTools.DeclaredMethod(typeof(EffectListManager),
                 nameof(Patch_ZNetScene_Awake))));
