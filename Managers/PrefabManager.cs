@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using ItemManager;
 using PieceManager;
 using UnityEngine;
 
@@ -47,7 +48,9 @@ public class PrefabManager
         Assets.SetupWhiteMarblePieces();
         Assets.SetupVfx();
         Assets.LoadBrazierAssets();
+        Assets.CreateWhiteMarble();
 
+        Item.Patch_FejdStartup();
         BuildPiece.Patch_FejdStartup(__instance);
     }
 

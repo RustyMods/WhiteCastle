@@ -5,6 +5,7 @@ namespace WhiteCastle;
 public static partial class Assets
 {
     private static bool vfx_loaded;
+    private static Material white_marble_item;
     public static void SetupVfx()
     {
         if (vfx_loaded) return;
@@ -16,7 +17,7 @@ public static partial class Assets
         vfx_destroyed.name = "vfx_WhiteMarbleDestroyed";
         var des_renderer = vfx_destroyed.transform.GetChild(0).gameObject.GetComponent<Renderer>();
         var black_marble_item =des_renderer.sharedMaterial;
-        var white_marble_item = new Material(black_marble_item);
+        white_marble_item = new Material(black_marble_item);
         white_marble_item.name = "white_marble_item";
         white_marble_item.mainTexture = white_marble_texture;
         des_renderer.sharedMaterial = white_marble_item;

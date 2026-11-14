@@ -130,13 +130,17 @@
         <Compile Include="Managers\EffectListManager.cs" />
         <Compile Include="Managers\EffectRef.cs" />
         <Compile Include="Managers\IconExport.cs" />
+        <Compile Include="Managers\ItemManager.cs" />
         <Compile Include="Managers\PieceManager\MaterialData.cs" />
         <Compile Include="Managers\PieceManager\MaterialReplacer.cs" />
         <Compile Include="Managers\PieceManager\PieceManager.cs" />
         <Compile Include="Managers\PrefabManager.cs"/>
         <Compile Include="Managers\ReadMeBuilder.cs" />
+        <Compile Include="Pieces\Arches.cs" />
         <Compile Include="Pieces\Assets.cs" />
+        <Compile Include="Pieces\Bell.cs" />
         <Compile Include="Pieces\Brazier.cs" />
+        <Compile Include="Pieces\Item.cs" />
         <Compile Include="Pieces\VFX.cs" />
         <Compile Include="Pieces\WhiteMarble.cs" />
         <Compile Include="Plugin.cs"/>
@@ -162,12 +166,15 @@
         <Content Include="icons\piece_white_marble_2x2_enforced.png" />
         <Content Include="icons\piece_white_marble_arch.png" />
         <Content Include="icons\piece_white_marble_arch_1.png" />
+        <Content Include="icons\piece_white_marble_arch_1_inverted.png" />
         <Content Include="icons\piece_white_marble_arch_2.png" />
+        <Content Include="icons\piece_white_marble_arch_2_inverted.png" />
         <Content Include="icons\piece_white_marble_arch_3.png" />
         <Content Include="icons\piece_white_marble_base.png" />
         <Content Include="icons\piece_white_marble_base_1.png" />
         <Content Include="icons\piece_white_marble_base_2.png" />
         <Content Include="icons\piece_white_marble_base_corner.png" />
+        <Content Include="icons\piece_white_marble_base_inverted.png" />
         <Content Include="icons\piece_white_marble_beam_1.png" />
         <Content Include="icons\piece_white_marble_beam_2.png" />
         <Content Include="icons\piece_white_marble_beam_3.png" />
@@ -186,6 +193,7 @@
         <Content Include="icons\piece_white_marble_column_3.png" />
         <Content Include="icons\piece_white_marble_column_3_1.png" />
         <Content Include="icons\piece_white_marble_column_3_2.png" />
+        <Content Include="icons\piece_white_marble_column_3_3.png" />
         <Content Include="icons\piece_white_marble_column_4_1.png" />
         <Content Include="icons\piece_white_marble_column_4_2.png" />
         <Content Include="icons\piece_white_marble_column_4_3.png" />
@@ -228,6 +236,7 @@
         <Content Include="icons\piece_white_marble_deco_8.png" />
         <Content Include="icons\piece_white_marble_deco_9.png" />
         <Content Include="icons\piece_white_marble_detail_1.png" />
+        <Content Include="icons\piece_white_marble_detail_2.png" />
         <Content Include="icons\piece_white_marble_flat_1.png" />
         <Content Include="icons\piece_white_marble_flat_2.png" />
         <Content Include="icons\piece_white_marble_flat_3.png" />
@@ -282,7 +291,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="YamlDotNet" Version="16.3.0"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

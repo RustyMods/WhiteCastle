@@ -10,11 +10,12 @@ public static partial class Assets
     private static void SetupBrazier()
     {
         brazier = new BuildPiece("white_castle_bundle", "piece_white_marble_brazier");
-        brazier.Name.English("Brazier");
+        brazier.Name.English("Golden Brazier");
         brazier.Description.English("");
         brazier.Category.Set("White Castle");
         brazier.Usage.Set(Piece.UsageTagFlags.Lighting);
-        brazier.RequiredItems.Add("Ice", 1, true);
+        brazier.RequiredItems.Add("Gold", 5, true);
+        brazier.RequiredItems.Add("Coal", 10, true);
         brazier.Snapshot();
 
         var piece = brazier.Prefab.GetComponent<Piece>();

@@ -17,7 +17,7 @@ public static partial class Assets
         ["blackmarble_2x2_enforced"] = ("piece_white_marble_2x2_enforced", "White Marble 2x2x2 Enforced"),
         ["blackmarble_2x2x1"] = ("piece_white_marble_2x2x1", "White Marble 2x2x1"),
         ["blackmarble_2x2x2"] = ("piece_white_marble_2x2x2", "White Marble 2x2x2"),
-        ["blackmarble_arch"] = ("piece_white_marble_arch_1", "White Marble Arch"),
+        ["blackmarble_arch"] = ("piece_white_marble_arch", "White Marble Arch"),
         ["blackmarble_base_1"] = ("piece_white_marble_base_1", "White Marble Plinth"),
         ["blackmarble_base_2"] = ("piece_white_marble_base_2", "White Marble Plinth Wide"),
         ["blackmarble_basecorner"] = ("piece_white_marble_base_corner", "White Marble Plinth Corner"),
@@ -104,6 +104,7 @@ public static partial class Assets
 
                 wnt.m_destroyedEffect = new EffectListRef("vfx_WhiteMarbleDestroyed", "sfx_rock_destroyed");
                 wnt.m_hitEffect = new EffectListRef("vfx_WhiteMarbleHit", "sfx_rock_hit");
+                wnt.m_materialType = WearNTear.MaterialType.Marble;
 
                 piece.m_name = "";
                 piece.m_description = "";
@@ -114,7 +115,17 @@ public static partial class Assets
                 build.Name.English(name);
                 build.Description.English("");
                 build.Category.Set("White Castle");
-                build.RequiredItems.Add("Ice", 1, true);
+
+                
+                foreach (var r in piece.m_resources)
+                {
+                    if (r.m_resItem.name == "BlackMarble")
+                    {
+                        build.RequiredItems.Add("WhiteMarble_RS", r.m_amount, true);
+                    }
+                }
+                
+                build.Crafting.Set(CraftingTable.StoneCutter);
                 build.Snapshot();
             }
 

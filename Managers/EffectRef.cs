@@ -10,6 +10,7 @@ public class EffectListRef
     
     public readonly EffectList m_effectList = new  EffectList();
     public readonly EffectRef[] m_effectRefs;
+    private bool loaded;
 
     public EffectListRef(params string[] effectNames)
     {
@@ -33,6 +34,7 @@ public class EffectListRef
 
     public void Load()
     {
+        if (loaded) return;
         List<EffectList.EffectData> list = [];
         for (int i = 0; i < m_effectRefs.Length; ++i)
         {
@@ -43,6 +45,7 @@ public class EffectListRef
         }
 
         m_effectList.m_effectPrefabs = list.ToArray();
+        loaded = true;
     }
 }
 
