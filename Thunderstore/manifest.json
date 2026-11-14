@@ -1,7 +1,7 @@
 {
   "name": "WhiteCastle",
   "version_number": "1.0.0",
-  "website_url": "https://discord.gg/pdHgy6Bsng",
+  "website_url": "https://github.com/RustyMods/WhiteCastle",
   "description": "White Castle pieces & re-textured black marble pieces",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2360"
