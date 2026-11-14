@@ -1,9 +1,21 @@
+using System.Collections.Generic;
 using PieceManager;
 
 namespace WhiteCastle;
 
 public static partial class Assets
 {
+    private static Dictionary<string, string> arches = new()
+    {
+        ["piece_white_marble_arch_1"] = "Steep White Marble Arch",
+        ["piece_white_marble_arch_2"] = "Wide White Marble Arch",
+        ["piece_white_marble_arch_3"] = "White Marble Arch Section",
+        ["piece_white_marble_base"] = "White Marble Arch Base",
+        ["piece_white_marble_arch_1_inverted"] = "White Marble Arch",
+        ["piece_white_marble_arch_2_inverted"] = "White Marble Arch",
+        ["piece_white_marble_base_inverted"] = "White Marble Arch Base"
+    };
+    
     private static void SetupArches()
     {
         foreach (var kvp in arches)

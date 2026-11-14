@@ -6,16 +6,7 @@ namespace WhiteCastle;
 
 public static partial class Assets
 {
-    private static Dictionary<string, string> arches = new()
-    {
-        ["piece_white_marble_arch_1"] = "Steep White Marble Arch",
-        ["piece_white_marble_arch_2"] = "Wide White Marble Arch",
-        ["piece_white_marble_arch_3"] = "White Marble Arch Section",
-        ["piece_white_marble_base"] = "White Marble Arch Base",
-        ["piece_white_marble_arch_1_inverted"] = "White Marble Arch",
-        ["piece_white_marble_arch_2_inverted"] = "White Marble Arch",
-        ["piece_white_marble_base_inverted"] = "White Marble Arch Base"
-    };
+
 
     private static Dictionary<string, string> beams = new()
     {
@@ -417,92 +408,5 @@ public static partial class Assets
         }
     }
 
-    private static List<string> materials = 
-    [
-        "Details",
-        "Heaven_Castle_1_2",
-        "Heaven_Castle_1_4",
-        "Heaven_Castle_2_1",
-        "Heaven_Castle_2_1_el",
-        "Heaven_Castle_2_2",
-        "Heaven_Castle_2_3",
-        
-    ];
-    
-    private static void SetupMaterials()
-    {
-        var bundle = PiecePrefabManager.RegisterAssetBundle("white_castle_bundle");
-        
-        var details = new MaterialData(
-            bundle.LoadAsset<Material>("Details"),
-            MaterialReplacer.ShaderType.PieceShader);
-        details.floatProps["_Metallic"] = 0.5f;
-        details.floatProps["_Glossiness"] =0.8f;
-        details.vectorProps["_EmissionColor"] = Vector4.zero;
-        // details.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat1 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_1_2"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat1.floatProps["_Metallic"] = 0.5f;
-        mat1.floatProps["_Glossiness"] = 0.8f;
-        mat1.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat1.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat2 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_1_4"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat2.floatProps["_Metallic"] = 0.5f;
-        mat2.floatProps["_Glossiness"] =0.8f;
-        mat2.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat2.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat3 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_2_1"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat3.floatProps["_Metallic"] = 0.5f;
-        mat3.floatProps["_Glossiness"] = 0.8f;
-        mat3.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat3.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat4 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_2_1_el"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat4.floatProps["_Metallic"] = 0.5f;
-        mat4.floatProps["_Glossiness"] = 0.8f;
-        mat4.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat4.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat5 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_2_2"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat5.floatProps["_Metallic"] = 0.5f;
-        mat5.floatProps["_Glossiness"] = 0.8f;
-        mat5.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat5.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat6 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_2_3"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat6.floatProps["_Metallic"] = 0.5f;
-        mat6.floatProps["_Glossiness"] = 0.8f;
-        mat6.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat6.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat7 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_3_1"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat7.floatProps["_Metallic"] = 0.5f;
-        mat7.floatProps["_Glossiness"] = 0.8f;
-        mat7.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat7.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-        
-        var mat8 = new MaterialData(
-            bundle.LoadAsset<Material>("Heaven_Castle_3_2"),
-            MaterialReplacer.ShaderType.PieceShader);
-        mat8.floatProps["_Metallic"] = 0.5f;
-        mat8.floatProps["_Glossiness"] = 0.8f;
-        mat8.vectorProps["_EmissionColor"] = Vector4.zero;
-        // mat8.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
-    }
+
 }

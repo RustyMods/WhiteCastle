@@ -16,6 +16,7 @@ public static partial class Assets
         brazier.Usage.Set(Piece.UsageTagFlags.Lighting);
         brazier.RequiredItems.Add("Gold", 5, true);
         brazier.RequiredItems.Add("Coal", 10, true);
+        brazier.Crafting.Set(CraftingTable.BlackForge);
         brazier.Snapshot();
 
         var piece = brazier.Prefab.GetComponent<Piece>();

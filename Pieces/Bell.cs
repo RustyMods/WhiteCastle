@@ -15,6 +15,7 @@ public static partial class Assets
         build.Category.Set("White Castle");
         build.Usage.Set(Piece.UsageTagFlags.Decor);
         build.RequiredItems.Add("Gold", 10, true);
+        build.Crafting.Set(CraftingTable.BlackForge);
         build.Snapshot();
 
         var piece = build.Prefab.GetComponent<Piece>();
