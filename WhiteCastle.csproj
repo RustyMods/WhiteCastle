@@ -152,14 +152,10 @@
         <None Include="App.config"/>
     </ItemGroup>
     <ItemGroup>
-        <EmbeddedResource Include="..\..\..\Desktop\Valheim\V1\AssetBundles\StandaloneWindows\white_castle_bundle">
-          <Link>assets\white_castle_bundle</Link>
-        </EmbeddedResource>
-        <Content Include="..\..\..\Desktop\Valheim\V1\AssetBundles\StandaloneWindows\white_castle_bundle.manifest">
-          <Link>assets\white_castle_bundle.manifest</Link>
-        </Content>
-        <Content Include=".gitignore"/>
-        <Content Include="environment.props"/>
+        <Content Include=".gitignore" />
+        <EmbeddedResource Include="assets\white_castle_bundle" />
+        <Content Include="assets\white_castle_bundle.manifest" />
+        <Content Include="environment.props" />
         <Content Include="icons\piece_white_marble_1x1.png" />
         <Content Include="icons\piece_white_marble_2x1x1.png" />
         <Content Include="icons\piece_white_marble_2x2x1.png" />
@@ -275,18 +271,18 @@
         <Content Include="icons\piece_white_marble_window_3_1.png" />
         <Content Include="icons\piece_white_marble_window_3_2.png" />
         <Content Include="icons\piece_white_marble_window_3_3.png" />
-        <Content Include="ILRepack.targets"/>
+        <Content Include="ILRepack.targets" />
         <Content Include="Libs\ServerSync.dll">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Include="README.md"/>
-        <Content Include="Thunderstore\CHANGELOG.md"/>
-        <Content Include="Thunderstore\icon.png"/>
-        <Content Include="Thunderstore\manifest.json"/>
-        <EmbeddedResource Include="translations\English.yml"/>
+        <Content Include="README.md" />
+        <Content Include="Thunderstore\CHANGELOG.md" />
+        <Content Include="Thunderstore\icon.png" />
+        <Content Include="Thunderstore\manifest.json" />
+        <EmbeddedResource Include="translations\English.yml" />
         <Content Include="Thunderstore\README.md" />
         <Content Include="Thunderstore\WhiteCastle.dll" />
-        <Content Include="UpdateManifest.ps1"/>
+        <Content Include="UpdateManifest.ps1" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.44.1">

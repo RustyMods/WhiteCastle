@@ -11,9 +11,9 @@ public static partial class Assets
         ["piece_white_marble_arch_2"] = "Wide White Marble Arch",
         ["piece_white_marble_arch_3"] = "White Marble Arch Section",
         ["piece_white_marble_base"] = "White Marble Arch Base",
-        ["piece_white_marble_arch_1_inverted"] = "White Marble Arch",
-        ["piece_white_marble_arch_2_inverted"] = "White Marble Arch",
-        ["piece_white_marble_base_inverted"] = "White Marble Arch Base"
+        ["piece_white_marble_arch_1_inverted"] = "Steep White Marble Arch Inverted",
+        ["piece_white_marble_arch_2_inverted"] = "Wide White Marble Arch Inverted",
+        ["piece_white_marble_base_inverted"] = "White Marble Arch Base Inverted"
     };
     
     private static void SetupArches()
@@ -27,6 +27,7 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 2, true);
             build.RequiredItems.Add("Gold", 1, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();

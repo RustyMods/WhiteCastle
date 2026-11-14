@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using PieceManager;
 using UnityEngine;
 
@@ -115,17 +116,11 @@ public static partial class Assets
                 build.Name.English(name);
                 build.Description.English("");
                 build.Category.Set("White Castle");
-
-                
-                foreach (var r in piece.m_resources)
-                {
-                    if (r.m_resItem.name == "BlackMarble")
-                    {
-                        build.RequiredItems.Add("WhiteMarble_RS", r.m_amount, true);
-                    }
-                }
-                
                 build.Crafting.Set(CraftingTable.StoneCutter);
+
+                var amount = piece.m_resources.Sum(r => r.m_amount);
+                build.RequiredItems.Add("WhiteMarble_RS", amount, true);
+                
                 build.Snapshot();
             }
 

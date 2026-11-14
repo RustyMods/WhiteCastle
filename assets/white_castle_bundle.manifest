@@ -1,0 +1,179 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.0.75f1
+CRC: 745293160
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ece61fda1aabf8bc8f4d9ecc3ae61322
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2881948b353c0cf4f36e8c0bd10f2a9d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f0108301db89a11506d2e2191b7df5c7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 2140874873, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 927819712, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 1404409730, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 313648218, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 1521249158, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 130663047, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: -1210150510, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 2053127972, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 2094620348, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 469224316, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 114
+  Script: {fileID: 895252998, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 205
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: assembly_valheim
+  ClassName: EffectList
+- AssemblyName: assembly_valheim
+  ClassName: HitData/DamageModifiers
+- AssemblyName: assembly_valheim
+  ClassName: HitData/DamageTypes
+Assets:
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_5.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_2_3.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_4_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_bell.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_1_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_4_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_wall_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_2_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_3_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_8_3.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_1_4.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_cornice_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_brazier.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_7_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_flat_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_beam_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_arch_1_inverted.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_6_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_7_2.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_3_1.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_1_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_7_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_8_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_8.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_cornice_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_1_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_flat_2.prefab
+- Assets/_WhiteCastle/Textures/Edited/white_marble_d.png
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_2_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_arch_2_inverted.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_4_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_8_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_3_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_1_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_7.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_3_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_3_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_5_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_1_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_3_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_1_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_pillar_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_2_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_detail_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_2_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_4_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_1_5.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_5_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_detail_1.prefab
+- Assets/_WhiteCastle/Materials/Details.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_2_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_6.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_2_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_6_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_beam_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_4_5.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_flat_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_2.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_2_1.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_3_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_arch_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_7_1.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_3_2.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_wall_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_9.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_3_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_beam_4.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_flat_5.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_2_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_5.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_base_inverted.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_3_2.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_2_1_el.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_1_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_8_4.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_2_2.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_3_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_pillar_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_6_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_2_5.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_flat_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_arch_2.prefab
+- Assets/_WhiteCastle/Materials/Heaven_Castle_1_2.mat
+- Assets/_WhiteCastle/Pieces/piece_white_marble_deco_10.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_beam_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_window_2_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_contreforce_2.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_1_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_arch_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_column_2_3.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_pillar_1.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_base.prefab
+- Assets/_WhiteCastle/Pieces/piece_white_marble_cornice_1.prefab
+Dependencies: []

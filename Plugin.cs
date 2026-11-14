@@ -20,7 +20,7 @@ public class WhiteCastlePlugin : BaseUnityPlugin
     public void Awake()
     {
         instance = this;
-        // ReadMeBuilder.Init(true);
+        // ReadMeBuilder.Init(false);
 
         var root = PrefabManager.root;
 

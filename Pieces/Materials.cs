@@ -27,7 +27,7 @@ public static partial class Assets
         {
             var data = new MaterialData(bundle.LoadAsset<Material>(mat), MaterialReplacer.ShaderType.PieceShader);
             data.floatProps["_Metallic"] = 0.5f;
-            data.floatProps["_Glossiness"] =0.8f;
+            data.floatProps["_Glossiness"] = 0.8f;
             data.vectorProps["_EmissionColor"] = Vector4.zero;
             // details.vectorProps["_Color"] = new Vector4(0.5f, 0.5f, 0.5f, 1f);
         }

@@ -6,14 +6,12 @@ namespace WhiteCastle;
 
 public static partial class Assets
 {
-
-
     private static Dictionary<string, string> beams = new()
     {
-        ["piece_white_marble_beam_1"] =  "White Marble Beam 1",
-        ["piece_white_marble_beam_2"] = "White Marble Beam 2",
-        ["piece_white_marble_beam_3"] = "White Marble Beam 3",
-        ["piece_white_marble_beam_4"] = "White Marble Beam 4",
+        ["piece_white_marble_beam_1"] =  "Stepped White Marble Beam",
+        ["piece_white_marble_beam_2"] = "Thick White Marble Beam",
+        ["piece_white_marble_beam_3"] = "Flat White Marble Beam",
+        ["piece_white_marble_beam_4"] = "Triangle White Marble Beam",
     };
 
     private static Dictionary<string, string> poles = new()
@@ -165,6 +163,7 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 4, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -186,6 +185,7 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("Gold", 2, true);
+            build.Crafting.Set(CraftingTable.BlackForge);
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -209,6 +209,8 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 5, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -228,6 +230,8 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 5, true);
             build.RequiredItems.Add("Gold", 1, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -249,6 +253,8 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 2, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -270,6 +276,8 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 2, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -292,6 +300,8 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 2, true);
             build.RequiredItems.Add("Gold", 1, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -314,6 +324,8 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 2, true);
             build.RequiredItems.Add("Gold" , 1, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -336,6 +348,8 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 5, true);
             build.RequiredItems.Add("Gold", 1, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -357,6 +371,8 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 4, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -379,6 +395,8 @@ public static partial class Assets
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("WhiteMarble_RS", 1, true);
             build.RequiredItems.Add("Gold", 2, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
@@ -397,6 +415,8 @@ public static partial class Assets
             build.Category.Set("White Castle");
             build.Usage.Set(Piece.UsageTagFlags.Architecture);
             build.RequiredItems.Add("Gold", 2, true);
+            build.Crafting.Set(CraftingTable.StoneCutter);
+
             build.Snapshot();
 
             var piece = build.Prefab.GetComponent<Piece>();
