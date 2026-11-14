@@ -1,4 +1,3 @@
-# WhiteCastle
 
 | Icon | Internal ID | Name | Description | Resources |
 |:---:|:---|:---|:---|:---|

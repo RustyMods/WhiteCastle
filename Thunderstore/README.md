@@ -1,9 +1,29 @@
-# WhiteCastle
+# White Castle
 
-
+Deep north white castle pieces & re-textured black marble pieces (white marble)
 
 https://assetstore.unity.com/packages/3d/environments/fantasy/white-castle-263476
 
+## Notes
+
+Plugin creates `White Marble` item, that can be crafted at the `Stone Cutter` using `Black Marble` & `Ancient Coin` (configurable)
+
+## Need a dedicated server ?
+
+<a href="https://www.survivalservers.com/?ref=rustymods">
+<img src="https://www.survivalservers.com/themes/epona/images/logo.png">
+</a> 
+
+Use this link: https://www.survivalservers.com/?ref=rustymods , I'll get a 20% commission. Thanks
+
+## Donations
+If you enjoy this mod and want to support me:
+[PayPal](https://paypal.me/mpei)
+
+<span>
+<img src="https://i.imgur.com/rbNygUc.png" alt="" width="150">
+<img src="https://i.imgur.com/VZfZR0k.png" alt="https://www.buymeacoffee.com/peimalcolm2" width="150">
+</span>
 
 | Icon | Internal ID | Name | Description | Resources |
 |:---:|:---|:---|:---|:---|
