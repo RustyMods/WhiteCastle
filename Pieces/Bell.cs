@@ -24,6 +24,7 @@ public static partial class Assets
         piece.m_placeEffect = new EffectListRef("vfx_Place_wood_pole", "sfx_build_hammer_metal");
         wnt.m_destroyedEffect = new EffectListRef( "sfx_metal_blocked");
         wnt.m_hitEffect = new EffectListRef("vfx_HitSparks", "sfx_fader_bell");
+        wnt.m_health = 5000;
 
         build.Prefab.AddComponent<Bell>();
     }    
@@ -31,6 +32,7 @@ public static partial class Assets
 
 public class Bell : MonoBehaviour
 {
+    public ZNetView m_nview;
     public Transform m_waist;
     public Transform m_clapper;
 
@@ -59,20 +61,38 @@ public class Bell : MonoBehaviour
 
     public void Awake()
     {
+        m_nview = GetComponent<ZNetView>();
+        
         m_waist = transform.Find("waist");
         m_clapper = transform.Find("waist/yoke/clapper");
 
-        if (m_waist) m_waistRest = m_waist.localRotation;
-        if (m_clapper) m_clapperRest = m_clapper.localRotation;
+        if (m_waist)
+        {
+            m_waistRest = m_waist.localRotation;
+        }
+        if (m_clapper)
+        {
+            m_clapperRest = m_clapper.localRotation;
+        }
 
         m_axis = m_rotationAxis.normalized;
+
+        if (m_nview.GetZDO() != null)
+        {
+            m_nview.Register<float>(nameof(RPC_SetBellVelocity), RPC_SetBellVelocity);
+        }
+    }
+
+    public void RPC_SetBellVelocity(long sender, float velocity)
+    {
+        m_velocity += velocity;
+        m_clapperVelocity -= velocity * 1.5f;
     }
 
     public void ApplyForce(HitData hit)
     {
         if (!m_waist) return;
 
-        // Push the bell away from where it was hit
         Vector3 dir = m_waist.position - hit.m_point;
         dir.y = 0f;
         if (dir.sqrMagnitude < 0.0001f)
@@ -82,19 +102,16 @@ public class Bell : MonoBehaviour
         }
         if (dir.sqrMagnitude < 0.0001f) return;
 
-        // Which way does the bottom of the bell move for a positive angle on our axis?
         Vector3 localDir = m_waist.InverseTransformDirection(dir.normalized);
         Vector3 positiveSwing = Vector3.Cross(m_axis, Vector3.down);
 
-        // Only the part of the hit along the swing direction matters
         float along = Vector3.Dot(localDir, positiveSwing);
-        if (Mathf.Abs(along) < 0.05f) return; // hit is perpendicular to the swing, no movement
+        if (Mathf.Abs(along) < 0.05f) return; 
 
         float kick = Mathf.Clamp(hit.GetTotalDamage() * m_forcePerDamage, m_minKick, m_maxKick);
         float signed = kick * Mathf.Sign(along);
-
-        m_velocity += signed;
-        m_clapperVelocity -= signed * 1.5f;
+        
+        m_nview.InvokeRPC(ZNetView.Everybody, nameof(RPC_SetBellVelocity), signed);
     }
     
     private void Update()
@@ -104,15 +121,13 @@ public class Bell : MonoBehaviour
             Mathf.Abs(m_angle) < 0.01f &&
             Mathf.Abs(m_clapperVelocity) < 0.01f && 
             Mathf.Abs(m_clapperAngle) < 0.01f)
-            return; // at rest
+            return;
 
         float dt = Mathf.Min(Time.deltaTime, 0.033f);
 
-        // Waist: spring back to zero
         Step(ref m_angle, ref m_velocity, 0f, m_swingFrequency, m_swingDamping, dt);
         m_angle = Mathf.Clamp(m_angle, -m_maxAngle, m_maxAngle);
 
-        // Clapper: lags and swings against the waist
         Step(ref m_clapperAngle, ref m_clapperVelocity, -m_angle * m_clapperFollow,
             m_clapperFrequency, m_clapperDamping, dt);
         m_clapperAngle = Mathf.Clamp(m_clapperAngle, -m_maxClapperAngle, m_maxClapperAngle);
@@ -141,9 +156,9 @@ public class Bell : MonoBehaviour
     [HarmonyPatch(typeof(WearNTear), nameof(WearNTear.RPC_Damage))]
     private static class WearNTear_RPC_Damage_Bell_Patch
     {
-        private static void Prefix(WearNTear __instance, HitData hit)
+        private static void Postfix(WearNTear __instance, HitData hit)
         {
-            if (!__instance.TryGetComponent(out Bell component)) return;
+            if (!__instance.m_nview.IsValid() || !__instance.m_nview.IsOwner() || !__instance.TryGetComponent(out Bell component)) return;
             component.ApplyForce(hit);
         }
     }
